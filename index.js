@@ -82,10 +82,14 @@ const init = async () => {
         CREATE TABLE flavors(
             id SERIAL PRIMARY KEY,
             name VARCHAR(100) NOT NULL
+            updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+
         );
         INSERT INTO flavors(name) VALUES('Vanilla');
         INSERT INTO flavors(name) VALUES('Chocolate');
         INSERT INTO flavors(name) VALUES('Strawberry');
+        INSERT INTO flavors(name) VALUES('Mint');
+        
         `;
   await client.query(SQL);
   console.log("DB has been seeded");
